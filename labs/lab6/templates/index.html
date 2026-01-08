@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Lab6 — MVC + LLM</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+  <div class="container">
+    <h1>Лабораторная №6 — Интеграция с веб-приложениями (MVC)</h1>
+    <p class="hint">
+      <b>Controller</b> (Flask) принимает запрос, <b>Model</b> (LLMService) формирует ответ,
+      <b>View</b> (этот HTML) отображает результат.
+    </p>
+
+    <form method="post" class="card">
+      <label for="prompt"><b>Запрос:</b></label>
+      <textarea id="prompt" name="prompt" rows="5" placeholder="Введите запрос...">{{ prompt }}</textarea>
+      <button type="submit">Отправить</button>
+    </form>
+
+    {% if answer %}
+      <div class="card">
+        <h2>Ответ модели:</h2>
+        <pre>{{ answer }}</pre>
+      </div>
+    {% endif %}
+  </div>
+</body>
+</html>
